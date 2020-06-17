@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script src="https://auth.apus-systems.com/auth/js/keycloak.js"></script>
+    <script>
+
+      let showUserInfo = (keycloak) => {
+        const idToken = keycloak.idTokenParsed
+        const userNameHolder = document.querySelector("#username")
+        const userEmailHolder = document.querySelector("#user-email")
+
+        userNameHolder.textContent = idToken.name
+        userEmailHolder.textContent = idToken.email
+      }
+
+      var keycloak = new Keycloak();
+      keycloak
+        .init({
+          onLoad: "login-required",
+          promiseType: "native",
+          enableLogging: true
+        })
+        .then((authenticated) => {
+          // alert(authenticated ? "authenticated" : "not authenticated");
+          console.log("Authenticated= ", authenticated);
+          console.log(keycloak);
+          console.log(keycloak.subject);
+          console.log(keycloak.idTokenParsed);
+
+          showUserInfo(keycloak)
+        })
+        .catch(() => {
+          alert("failed to initialize");
+        });
+
+        function logout() {
+          console.log("attempt to logout");
+          keycloak.logout()
+        }
+    </script>
+  </head>
+
+  <body>
+    <h2><span>Username: </span> <span id="username"></span></h1>
+    <h2><span>User email: </span> <span id="user-email"></span></h1>
+    <button onclick="logout()">Log Out</button>
+  </body>
+</html>

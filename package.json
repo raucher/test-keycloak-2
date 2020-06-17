@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "realm": "testrealm",
+  "auth-server-url": "https://auth.apus-systems.com/auth/",
+  "ssl-required": "external",
+  "resource": "js-public",
+  "public-client": true,
+  "confidential-port": 0
+}
