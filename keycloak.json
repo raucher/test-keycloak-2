@@ -2,7 +2,7 @@
   "realm": "testrealm",
   "auth-server-url": "https://auth.apus-systems.com/auth/",
   "ssl-required": "external",
-  "resource": "js-github-pages",
+  "resource": "js-github-pages-2",
   "public-client": true,
   "confidential-port": 0
 }
